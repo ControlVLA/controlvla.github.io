@@ -1,0 +1,535 @@
+theme: classic # default || classic || dark
+organization: Pixel Genius Labs
+twitter: '@denkivvakame'
+title: '<span style=''font-family: "Times New Roman", Times, serif;''><div><span style=''border-radius: 10px; padding: 0 5px; font-variant: small-caps; font-weight: bold; font-size: 1.5em;''><span style=''color: #8DC258;''>Control</span><span style=''color: #F09C3E;''>VLA</span></span></div>Few-shot Object-centric Adaptation for Pre-trained Vision-Language-Action Models</span>'
+# journal: "CoRL'25"
+resources:
+  paper: ./pdf/paper.pdf
+  arxiv: https://www.arxiv.org/abs/2506.16211
+  code: https://github.com/ControlVLA/ControlVLA.git
+  # video: https://www.youtube.com/embed/onbnb_D1wC8?si=xJczUv716Lt5aO4l&amp;start=1150
+  # demo: # https://colab.research.google.com/
+  # huggingface: https://huggingface.co/datasets/LiKailin/DexManipNet
+description: academic projectpage template that supports markdown and KaTeX
+
+image: https://denkiwakame.github.io/academic-project-template/teaser.jpg
+url: https://denkiwakame.github.io/academic-project-template
+speakerdeck: # speakerdeck slide ID
+authors:
+  - name: Puhao Li
+    affiliation: [1, 2]
+    url: https://xiaoyao-li.github.io/
+  - name: Yingying Wu
+    affiliation: [1]
+  - name: Ziheng Xi
+    affiliation: [1]
+    url: https://scholar.google.com/citations?user=2jhxMu0AAAAJ&hl=en
+  - name: Wanlin Li
+    affiliation: [2]
+    url: https://scholar.google.com/citations?user=n_mYangAAAAJ&hl=zh-CN
+  - name: Yuzhe Huang
+    affiliation: [2]
+  - name: Zhiyuan Zhang
+    affiliation: [1]
+    url: https://scholar.google.com/citations?user=BS7FuB0AAAAJ&hl=en
+  - name: Yinghan Chen
+    affiliation: [3]
+  - name: Jianan Wang
+    affiliation: [4]
+    url: https://scholar.google.com/citations?user=mt5mvZ8AAAAJ&hl=en
+  - name: Song-Chun Zhu
+    affiliation: [1, 2, 3]
+    url: https://zhusongchun.net/
+  - name: Tengyu Liu
+    affiliation: [2]
+    url: https://tengyu.ai/
+  - name: Siyuan Huang
+    affiliation: [2]
+    url: https://siyuanhuang.com/
+affiliations:
+  - Tsinghua University
+  - Beijing Institute for General Artificial Intelligence (BIGAI)
+  - Peking University
+  - AstriBot Inc.
+# meta:
+#   - '*work done while she was interning at Pixel Genius Lab.'
+bibtex: >
+  @article{li2025controlvla,
+    title={ControlVLA: Few-shot Object-centric Adaptation for Pre-trained Vision-Language-Action Models},
+    author={Puhao Li and Yingying Wu and Ziheng Xi and Wanlin Li and Yuzhe Huang and Zhiyuan Zhang and Yinghan Chen and Jianan Wang and Song-Chun Zhu and Tengyu Liu and Siyuan Huang},
+    journal={arXiv preprint arXiv:2506.16211},
+    year={2025}
+  }
+
+teaser: teaser.mp4
+abstract: |
+  Learning real-world robotic manipulation is challenging, particularly when limited demonstrations are available. Existing methods for few-shot manipulation often rely on simulation-augmented data or pre-built modules like grasping and pose estimation, which struggle with sim-to-real gaps and lack extensibility. While large-scale imitation pre-training shows promise, adapting these general-purpose policies to specific tasks in data-scarce settings remains unexplored. To achieve this, we propose <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span>, a novel framework that **bridges pre-trained VLA models with object-centric representations via a ControlNet-style architecture for efficient fine-tuning**. Specifically, to introduce object-centric conditions without overwriting prior knowledge, <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span> zero-initializes a set of projection layers, allowing them to gradually adapt the pre-trained manipulation policies.
+  In real-world experiments across 6 diverse tasks, including pouring cubes and folding clothes, our method achieves a 76.7\% success rate while ***requiring only 10-20 demonstrations*** --- a significant improvement over traditional approaches that require more than 100 demonstrations to achieve comparable success. Additional experiments highlight <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span>'s **extensibility to long-horizon tasks and robustness to unseen objects and backgrounds**.
+
+body:
+  - title: Manipulation Results
+    text: |
+      <div className="uk-responsive-width" style="margin-top: -40px;">
+        <img src="res_main.png"/>
+      </div>
+      <b>Main Comparison and Ablation Studies.</b> All policies are trained or fine-tuned from a shared, limited demonstration dataset for each task. <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span> achieves an impressive <b>overall task success rate of 76.7%</b>, significantly outperforming the baselines.
+
+      <div style="margin-top: 20px;">
+        <center><b style="font-size: 1.2em;">Various manipulation tasks (using <span style='color: #d87745'>only 10-20 demos</span>)</b></center>
+      </div>
+      <style>
+        .uk-width-2-5 {
+          width: 33%;
+        }
+      </style>
+      <div uk-slider>
+        <div class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@m uk-grid">
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-door_3.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">  
+            <div>
+              <video
+                src="short-toy_1.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-toy_2.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-toy_3.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-cup_1.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-cup_2.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-cup_3.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-door_1.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-door_2.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+        </div>
+        <div class="uk-flex uk-flex-center uk-margin-small">
+          <a class="uk-icon-button" href uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="uk-icon-button uk-margin-small-left" href uk-slidenav-next uk-slider-item="next"></a>
+        </div>
+      </div>
+
+      <style>
+        .uk-width-2-5 {
+          width: 33%;
+        }
+      </style>
+      <div uk-slider>
+        <div class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@m uk-grid">
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-pour_3.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-cloth_1.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-cloth_2.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-cloth_3.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-scissors_1.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-scissors_2.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-scissors_3.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-pour_1.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="short-pour_2.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+        </div>
+        <div class="uk-flex uk-flex-center uk-margin-small">
+          <a class="uk-icon-button" href uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="uk-icon-button uk-margin-small-left" href uk-slidenav-next uk-slider-item="next"></a>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <center><b style="font-size: 1.2em;">Long-horizon manipulation tasks (using <span style='color: #d87745'>only 25 demos</span>)</b></center>
+      </div>
+      <div uk-slider>
+        <div class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@m uk-grid">
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="long/organize-1.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="long/replace-1.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="long/replace-2.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="long/replace-3.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="long/organize-3.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="long/organize-2.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+        </div>
+        <div class="uk-flex uk-flex-center uk-margin-small">
+          <a class="uk-icon-button" href uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="uk-icon-button uk-margin-small-left" href uk-slidenav-next uk-slider-item="next"></a>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <center><b style="font-size: 1.2em;">Generalization on object and background.</b></center>
+      </div>
+      <div uk-slider>
+        <div class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@m uk-grid">
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="unseen/bg-2.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div style="display: flex; align-items: center; height: 100%;">
+              <img 
+              src="unseen/unseen_setup.png"
+              style="width: 100%;"
+              />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="unseen/banana-2.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="unseen/banana-1.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="unseen/orange-1.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="unseen/orange-2.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="unseen/bread-1.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="unseen/bread-2.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+          <div class="uk-width-2-5">
+            <div>
+              <video
+                src="unseen/bg-1.mp4"
+                loop
+                muted
+                uk-video="autoplay:inview"
+                />
+            </div>
+          </div>
+        </div>
+        <div class="uk-flex uk-flex-center uk-margin-small">
+          <a class="uk-icon-button" href uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="uk-icon-button uk-margin-small-left" href uk-slidenav-next uk-slider-item="next"></a>
+        </div>
+      </div>
+
+  - title: Method
+    text: |
+      <div className="uk-responsive-width">
+        <img src="pipeline.png" alt="Method" />
+      </div>
+
+      Given a pre-trained general-purpose VLA model, our goal is to efficiently adapt it into a task-specific expert policy using limited demonstrations. To this end, we propose <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span>, which employs a ControlNet-style fine-tuning that integrates object-centric representations with a pre-trained VLA model. We first pre-train the general-purpose VLA model on a large-scale, multi-task manipulation dataset, then extract object-centric features to focus learning on task-relevant elements, and finally fine-tune the expert policy by gradually incorporating these features with ControlNet-style fine-tuning strategy. The zero-initialized weights and biases preserve the rich prior knowledge of the pre-trained policy while progressively grounding it in object-centric representation.
+
+  - title: Evaluation Setup
+    text: |
+      To evaluate the efficiency of <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span>,, we conduct **8** various real-world tasks using **only 10-20 demonstrations**.
+      <div className="uk-responsive-width" style="margin-top: -20px;">npm 
+        <img src="task_illustration.png"/>
+      </div>
+
+  - title: Long-horizon Performance
+    text: |
+      <div style="width: 100%; margin-left: auto; margin-right: auto;">
+        <b>Performance on Long-horizon Tasks.</b> <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span> significantly outperforms baselines under this low-data regime, achieving an average 60.0% success rate on two long-horizon tasks. The stage-wise breakdown further demonstrates <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span>'s consistent performance throughout long sequences.
+      </div>
+      <div style="margin-top: 10px; width: 80%; margin-left: auto; margin-right: auto;">
+        <img src="res_long.jpg" style="width: 100%;"/>
+      </div>
+
+  - title: Adapt ControlVLA to π₀
+    text: |
+      We further adapt and evaluate <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span> on $\pi_0$, a more general VLA model, referred to as <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span> @ $\pi_0$. The $\pi_0$ model leverages a pre-trained vision-language backbone and introduces a separate <i>action expert</i> that outputs continuous actions using flow matching. <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span> @ $\pi_0$ extends this architecture by incorporating an additional <i>object expert</i> and a set of zero-convolution layers to progressively inject object-centric representation guidance.
+
+      Our adaptation method <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span> @ $\pi_0$ consistently outperforms the fine-tuned $\pi_0$, demonstrating that <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span> can serve as a plug-in module to enhance performance across a wide range of pre-trained VLA models.
+      <div style="margin-top: -10px; width: 80%; margin-left: auto; margin-right: auto;">
+        <img src="res_pi0.jpg" style="width: 100%;"/>
+      </div>
+
+  - title: Ablations
+    text: |
+      <div class="uk-grid-small uk-child-width-1-2 uk-child-width-1-3@m" uk-grid>
+        <div>
+          <span class="uk-text"> <center>w/o object-centric</center></span>
+          <video src="ablation/woobj-cup.mp4" loop muted uk-video="autoplay:inview"/></video>
+        </div>
+        <div>
+          <span class="uk-text"> <center>w/o ControlNet-style fine-tuning</center></span>
+          <video src="ablation/wocon-cup.mp4" loop muted uk-video="autoplay:inview"/></video>
+        </div>
+        <div>
+          <span class="uk-text"> <center>ControlVLA (ours)</center></span>
+          <video src="ablation/full-cup.mp4" loop muted uk-video="autoplay:inview"/></video>
+        </div>
+        <br>
+        <div>
+          <video src="ablation/woobj-door.mp4" loop muted uk-video="autoplay:inview"/></video>
+        </div>
+        <div>
+          <video src="ablation/wocon-door.mp4" loop muted uk-video="autoplay:inview"/></video>
+        </div>
+        <div>
+          <video src="ablation/full-door.mp4" loop muted uk-video="autoplay:inview"/></video>
+        </div>
+        <br>
+        <div>
+          <video src="ablation/woobj-pour.mp4" loop muted uk-video="autoplay:inview"/></video>
+        </div>
+        <div>
+          <video src="ablation/wocon-pour.mp4" loop muted uk-video="autoplay:inview"/></video>
+        </div>
+        <div>
+          <video src="ablation/full-pour.mp4" loop muted uk-video="autoplay:inview"/></video>
+        </div>
+      </div>
+
+projects: # relevant projects
+  - title: Relevant Project I
+    description: abstract text
+    img: https://getuikit.com/docs/images/light.jpg
+    journal: "ABCD'23"
+    url: https://denkiwakame.github.io/academic-project-template/

@@ -467,7 +467,7 @@ body:
 
   - title: Evaluation Setup
     text: |
-      To evaluate the efficiency of <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span>,, we conduct **8** various real-world tasks using **only 10-20 demonstrations**.
+      To evaluate the efficiency of <span style='font-family: \"Times New Roman\", Times, serif; font-variant: small-caps; font-weight: bold; font-size: 1.0em;'>ControlVLA</span>, we conduct **8** various real-world tasks using **only 10-20 demonstrations**.
       <div className="uk-responsive-width" style="margin-top: -20px;">npm 
         <img src="task_illustration.png"/>
       </div>

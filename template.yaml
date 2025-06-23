@@ -4,7 +4,7 @@ twitter: '@denkivvakame'
 title: '<span style=''font-family: "Times New Roman", Times, serif;''><div><span style=''border-radius: 10px; padding: 0 5px; font-variant: small-caps; font-weight: bold; font-size: 1.5em;''><span style=''color: #8DC258;''>Control</span><span style=''color: #F09C3E;''>VLA</span></span></div>Few-shot Object-centric Adaptation for Pre-trained Vision-Language-Action Models</span>'
 # journal: "CoRL'25"
 resources:
-  paper: ./pdf/paper.pdf
+  paper: /pdf/paper.pdf
   arxiv: https://www.arxiv.org/abs/2506.16211
   code: https://github.com/ControlVLA/ControlVLA.git
   # video: https://www.youtube.com/embed/onbnb_D1wC8?si=xJczUv716Lt5aO4l&amp;start=1150
